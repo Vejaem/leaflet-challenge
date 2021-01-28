@@ -13,12 +13,6 @@ var satellitemap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
     accessToken: API_KEY
 });
 
-//   var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-//     maxZoom: 18,
-//     id: "dark-v9",
-//     accessToken: API_KEY
-//   });
 
 var myMap = L.map("mapid", {
     center: [
@@ -33,10 +27,7 @@ var earthquakes = new L.LayerGroup();
 var tectonicplates = new L.LayerGroup();
 
 var baseMaps = {
-    "Satellite Map": satellitemap,
-    // "Street Map": streetmap,
-    // "Dark Map": darkmap
-
+    "Satellite Map": satellitemap
 };
 
 var overlayMaps = {
@@ -51,9 +42,9 @@ L.control.layers(baseMaps, overlayMaps, {
 console.log("control layers added to the map");
 
 
-var UrlTectonicPlates = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+var UrlPlates = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
 
-d3.json(UrlTectonicPlates, function (plateData) {
+d3.json(UrlPlates, function (plateData) {
     L.geoJson(plateData, {
         color: "orange",
         weight: 3
@@ -146,8 +137,6 @@ d3.json(UrlEarthquake, function (data) {
 
         }
         return div;
-
-        // .addTo(legend_depth)
       
 
     };
