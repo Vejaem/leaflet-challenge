@@ -14,7 +14,7 @@ var satellitemap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
 });
 
 
-var myMap = L.map("mapid", {
+var myMap = L.map("myMap", {
     center: [
         37.6, 14.0
     ],
